@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.konsumen')
 
 @section('content')
 <div class="container">
@@ -15,8 +15,9 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    <a href="{{ route('alamat.create') }}" >test alamat</a>
-                    <a href="{{ route('alamat.index') }}" >test index alamat</a>
+                    <a href="{{ route('alamat.create') }}" >test alamat</a><br>
+                    <a href="{{ route('alamat.index') }}" >test index alamat</a><br>
+                    <a href="{{ route('shipping') }}" >test shiping</a>
                 </div>
             </div>
         </div>
