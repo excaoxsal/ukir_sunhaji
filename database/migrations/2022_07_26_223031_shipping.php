@@ -13,7 +13,15 @@ class Shipping extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('shipping', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('consument_id')->unsigned();
+            $table->foreign('consument_id')->references('id')->on('users');
+            $table->bigInteger('id_alamat')->unsigned();
+            $table->text('status');
+            $table->foreign('id_alamat')->references('id')->on('alamat');
+            $table->timestamps();
+        });
     }
 
     /**

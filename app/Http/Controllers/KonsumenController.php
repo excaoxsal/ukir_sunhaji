@@ -53,6 +53,10 @@ class KonsumenController extends Controller
         // dd($products);
         return view ('konsumen.struk',compact('alamat'));
     }
+    public function shippingSave()
+    {
+    
+    }
     /**
      * Show the form for creating a new resource.
      *

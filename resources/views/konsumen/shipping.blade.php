@@ -32,7 +32,7 @@
                   Berat produk {{$products->weight}} Kg
                 </h2>
               </div>
-              <form name="orderForm"  enctype="multipart/form-data" action="{{ url('/struk') }}">
+              <form name="orderForm" method="POST"  enctype="multipart/form-data" action="{{ url('/struk') }}">
                 <!-- harus buat view di bagian cart biar enak nantinya -->
                 <label for="">pengiriman ke alamat</label>
 

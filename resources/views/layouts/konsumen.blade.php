@@ -196,10 +196,10 @@
           </li>
           
           <li class="nav-item">
-            <a href="{{ route('alamat.index') }}" class="nav-link">
+            <a href="{{ url('struk') }}" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                Status Pengiriman
+                My Receipt
                 
               </p>
             </a>

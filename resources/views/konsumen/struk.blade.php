@@ -116,10 +116,12 @@
       <!-- accepted payments column -->
       <div class="col-6">
         <p class="lead">Payment Methods:</p>
-        <img src="{{url('image/qris.jpeg')}}" width="300" height="300" alt="QRIS">
+        <p>QRIS Ukir Gebyok Pak Sunhaji</p>
+        <p>Scan untuk bayar</p>
+        <img src="{{url('image/qris2.jpg')}}" width="150" height="150" alt="QRIS">
 
         <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-          Untuk verifikasi pembayaran, tunjukan struk ini dan juga bukti pembayaran
+          Untuk verifikasi pembayaran, tunjukan struk ini dan juga bukti pembayaran ke <a href="https://wa.me/081234567890">sini</a> 
         </p>
       </div>
       <!-- /.col -->
@@ -127,6 +129,9 @@
         
 
         <div class="table-responsive">
+          <table class="table">
+            <tr>
+              
             <tr>
               <th>Total:</th>
               <td>Rp.{{$alamat->total}}</td>

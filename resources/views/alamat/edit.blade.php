@@ -24,35 +24,38 @@
     </ul>
   </div>
 @endif
-
-<form action="{{ route('alamat.store') }}" method="POST" enctype="multipart/form-data">
+@foreach ($almat as $p)
+    
+@endforeach
+<form action="{{ url('edit/update') }}" method="POST" enctype="multipart/form-data">
   @csrf
+  <input type="text"  class="form-control" name="alamat" value="{{$p->id}}" hidden="true" id="tfDefault">
   <div class="card-body">
     <div class="form-group">
       <label for="exampleInputEmail1">Nama Penerima</label>
-      <input type="name" name="name" class="form-control" placeholder="Product Name">
+      <input type="name" name="name" value="{{$p['nama']}}" class="form-control" placeholder="Product Name">
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Email</label>
-      <input type="email" name="email" class="form-control" placeholder="Email">
+      <input type="email" name="email" value="{{$p['email']}}" class="form-control" placeholder="Email">
       
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Nomor telepon yg dapat dihubungi</label>
-      <input type="number" name="phonenumber" class="form-control" placeholder="Price">
+      <input type="number" name="phonenumber" class="form-control" value="{{$p['phonenumber']}}" placeholder="Price">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Provinsi</label>
         <select selected="form-control select2" style="width: 100%;" name="provinsi" class="custom-select" id="selDefault"selected>
         <option selected>.....
-        @foreach($provinsi as $p)
-        <option name="provinsi" value="{{$p['id']}}" >{{$p['nama_provinsi']}} </option>
+        @foreach($provinsi as $pv)
+        <option name="provinsi" value="{{$pv['id']}}" >{{$pv['nama_provinsi']}} </option>
         @endforeach
         </select>
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Kota/Kabupaten</label>
-      <input type="text" name="region" class="form-control" placeholder="Kota/Kabupaten">
+      <input type="text" name="region" class="form-control" value="{{$p['region']}}" placeholder="Kota/Kabupaten">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Alamat Lengkap</label>

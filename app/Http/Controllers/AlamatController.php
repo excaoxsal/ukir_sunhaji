@@ -97,7 +97,9 @@ class AlamatController extends Controller
     public function edit(Alamat $alamat)
     {
         $provinsi = Provinsi::get();
-        return view('alamat.alamat',['provinsi' => $provinsi]);
+        $almat=Alamat::select('*')->where('id','=',$alamat->id)->get();
+        // dd($almat);
+        return view('alamat.edit',compact('almat','provinsi'));
     }
 
     /**
@@ -107,10 +109,27 @@ class AlamatController extends Controller
      * @param  \App\Models\Alamat  $alamat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alamat $alamat)
+    public function update(Request $request)
     {
-        $alamat->update($request->all());
-    
+        $iduser = \Auth::user()->id;
+        $status='Succes';
+        // dd($request);
+        // DB::update('update alamat set nama = 100 where name = ?', ['John']);
+        $alamat = DB::update('UPDATE alamat SET alamat.nama = :nama,alamat.id_provinsi = :id_provinsi, alamat.region = :region, 
+        alamat.email = :email, alamat.phonenumber = :phonenumber, alamat.fulladdress = :fulladdress 
+        where alamat.id = :id', ['nama'=>$request->name, 'id_provinsi'=>$request->provinsi,'region'=>$request->region,'email'=>$request->email,
+        'phonenumber'=>$request->phonenumber,'fulladdress'=>$request->fulladdress,'id'=>$request->alamat]);
+        // dd($alamat);
+        // Alamat::where('id', $request->input('id'))->update([
+        //     'consument_id'=>$iduser, 
+        //     'id_provinsi'=>$request->provinsi, 
+        //     'region'=>$request->region,
+        //     'nama'=>$request->name,
+        //     'email'=>$request->email,
+        //     'phonenumber'=>$request->phonenumber,
+        //     'fulladdress'=>$request->fulladdress,
+        //     'status'=>$status
+        // ]);
         return redirect()->route('alamat.index')
                         ->with('success','Product updated successfully');
     }
