@@ -17,6 +17,7 @@
                 <thead>
                   <tr>
                     <th></th>
+                    <th></th>
                     <th>Nama Barang</th>
                     <th>Harga</th>
                     <th>Berat</th>
@@ -35,6 +36,7 @@
                         </label>
                       </div>
                     </td>
+                    <td><img src="{{url('product_files/'.$p->picture)}}" alt="gambar produk" width="150" height="150"></td>
                     <td>{{$p->name}}</td>
                     <td>{{$p->price}}</td>
                     <td>{{$p->weight}}</td>
