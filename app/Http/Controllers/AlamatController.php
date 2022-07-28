@@ -40,6 +40,24 @@ class AlamatController extends Controller
         // dd($provinsi);
         return view('alamat.alamat',['provinsi' => $provinsi]);
     }
+    public function createProvinsi()
+    {
+        return view('provinsi.create');
+    }
+    public function storeProvinsi(Request $request)
+    {
+        $provinsi= Provinsi::create([
+            'nama_provinsi'=>$request->namaprovinsi,
+            'price'=>$request->price
+        ]);
+        if($provinsi==true){
+            return redirect()->route('provinsi.index')
+                        ->with('success','Provinsi created successfully.');
+        }
+        else{
+            return \Redirect::back()->withErrors(['Provinsi gagal ditambahkan']);
+        }
+    }
 
     /**
      * Store a newly created resource in storage.

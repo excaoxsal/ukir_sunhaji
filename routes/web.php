@@ -25,6 +25,7 @@ Route::get('/shipping', 'KonsumenController@shipping')->name('shipping');
 Route::get('/struk', 'KonsumenController@struk')->name('struk');
 Route::get('/myorder', 'KonsumenController@myorder')->name('myorder');
 Route::post('/edit/update/', 'AlamatController@update');
+Route::post('/edit/saveStatus/', 'OrderController@updateStatus')->name('updateStatus');
 
 
 Auth::routes();
@@ -37,6 +38,7 @@ Route::group(['middleware' => ['checkRole:admin']], function() {
     Route::resource('users','UserController');
     Route::resource('products','ProductController');
     Route::resource('orders','OrderController');
+    Route::resource('provinsi','ProvinsiController');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 });

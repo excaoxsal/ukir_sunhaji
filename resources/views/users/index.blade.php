@@ -29,31 +29,23 @@
    <th>Name</th>
    <th>Email</th>
    <th>Roles</th>
-   <th width="280px">Action</th>
+   <th>Action</th>
  </tr>
  @foreach ($data as $key => $user)
   <tr>
     <td>{{ ++$i }}</td>
     <td>{{ $user->name }}</td>
     <td>{{ $user->email }}</td>
-    <td>
-      @if(!empty($user->getRoleNames()))
-        @foreach($user->getRoleNames() as $v)
-           <label class="badge badge-success">{{ $v }}</label>
-        @endforeach
-      @endif
+    <td><label class="badge badge-success">{{$user->role}}</label>
     </td>
     <td>
        <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-       
        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
-       
-
-       @can('auth')
-        {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!}
-        @endcan
+      <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+        @csrf
+        @method('DELETE')        
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
     </td>
   </tr>
  @endforeach

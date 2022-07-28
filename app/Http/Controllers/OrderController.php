@@ -33,6 +33,13 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function updateStatus(Request $request)
+    {
+        // dd($request->orderId);
+        DB::update('update orders set status = :status where id = :id', ['status'=>$request->status,'id'=>$request->orderId]);
+        return redirect()->route('orders.index')
+                        ->with('success','Product updated successfully');
+    }
     public function create(Request $request)
     {
         
@@ -100,8 +107,11 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Order $order)
-    {
-        //
+    {   
+        // dd($order);
+        $orders=DB::select('select * from orders where id = :id', ['id'=>$order->id]);
+        // dd($orders);
+        return view('orders.edit', compact('orders'));
     }
 
     /**
@@ -115,6 +125,7 @@ class OrderController extends Controller
     {
         //
     }
+
 
     /**
      * Remove the specified resource from storage.

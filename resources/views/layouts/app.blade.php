@@ -217,6 +217,16 @@
             
           </li>
           <li class="nav-item">
+            <a href="{{ route('provinsi.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Manage Provinsi
+                
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link"
             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
               

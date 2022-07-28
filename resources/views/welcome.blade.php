@@ -4,7 +4,7 @@
 @section('content')
 <section class="slider_section ">
    <div class="slider_bg_box">
-      <img src="{{url('image/Kayu_jati.jpeg')}}" alt="">
+      <img src="{{url('image/ukir1.jpg')}}" alt="">
    </div>
    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -97,7 +97,7 @@
          <div class="container">
             <div class="heading_container heading_center">
                <h2>
-                  Our <span>products</span>
+                  Our <span style="color: red"> NEW Product</span>
                </h2>
             </div>
             
