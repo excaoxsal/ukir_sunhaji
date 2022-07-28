@@ -57,7 +57,7 @@
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="{{ route('products.show',$p->id) }}" class="option1">
+                           <a href="{{ route('produk.show',$p->id) }}" class="option1">
                            See Details
                            </a>
                            <form name="orderForm"  enctype="multipart/form-data" action="{{ url('/cart') }}">

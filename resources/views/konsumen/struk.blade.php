@@ -54,8 +54,8 @@
         From
         <address>
           <strong>Ukir Sunhaji</strong><br>
-          795 Folsom Ave, Suite 600<br>
-          San Francisco, CA 94107<br>
+          Desa Ngroto Rt 02 Rw01<br>
+          Kecamatan Mayong Jepara Jawa Tengah<br>
           Phone: (+62)82322060412<br>
         </address>
       </div>

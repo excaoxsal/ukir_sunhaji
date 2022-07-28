@@ -29,6 +29,9 @@ Route::post('/edit/saveStatus/', 'OrderController@updateStatus')->name('updateSt
 
 
 Auth::routes();
+Route::resource('produk','Prodlist');
+Route::resource('konsumen','KonsumenController');
+
 
 Route::get('/cart', 'OrderController@cart');
 Route::resource('alamat','AlamatController');
