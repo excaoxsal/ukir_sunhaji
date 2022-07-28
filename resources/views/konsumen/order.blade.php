@@ -41,7 +41,7 @@
                     <td>{{$p->created_at}}</td>
                     <td>{{$p->status}}</td>
                     <td><form name="orderForm"  enctype="multipart/form-data" action="{{ url('/cart') }}">
-                    <a href="">Pay Now</a><input type='number' name='order' value="{{$p->id}}" class="invisible" /></form></td>
+                    <a href="{{route('struk.show',$p->id)}}">Pay Now</a><input type='number' name='order' value="{{$p->id}}" class="invisible" /></form></td>
                   </tr>
                   @endforeach
               

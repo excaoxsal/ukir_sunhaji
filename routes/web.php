@@ -32,6 +32,7 @@ Auth::routes();
 
 Route::get('/cart', 'OrderController@cart');
 Route::resource('alamat','AlamatController');
+Route::resource('struk','StrukController');
 Route::group(['middleware' => ['checkRole:admin']], function() {
     Route::resource('roles','RoleController');
     Route::get('/home', 'HomeController@index')->name('home');

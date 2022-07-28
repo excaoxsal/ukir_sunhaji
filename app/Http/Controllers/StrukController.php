@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\struk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class StrukController extends Controller
 {
@@ -44,7 +46,7 @@ class StrukController extends Controller
      * @param  \App\Models\struk  $struk
      * @return \Illuminate\Http\Response
      */
-    public function show(struk $struk)
+    public function show($struk)
     {
         $iduser = \Auth::user()->id;
         $alamat = DB::select('SELECT alamat.id as alamatID, alamat.nama, alamat.region, alamat.phonenumber, 
@@ -52,7 +54,7 @@ class StrukController extends Controller
         products.name as product_name, alamat.email,products.picture,products.price as produkprice,products.detail, products.weight, orders.consument_id, 
         (products.price + provinsi.price) as total from orders INNER JOIN products ON orders.products_id = products.id 
         INNER JOIN users on users.id = orders.consument_id INNER JOIN alamat ON alamat.consument_id = users.id 
-        INNER JOIN provinsi ON provinsi.id = alamat.id_provinsi WHERE orders.id = ?', [$struk]);
+        INNER JOIN provinsi ON provinsi.id = alamat.id_provinsi WHERE orders.id = ? and users.id = ?', [$struk,$iduser]);
         // dd($products);
         return view ('konsumen.struk',compact('alamat'));
     }
