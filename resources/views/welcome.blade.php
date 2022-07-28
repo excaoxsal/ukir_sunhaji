@@ -9,6 +9,7 @@
                   Our <span>products</span>
                </h2>
             </div>
+            
             <div class="row">
                @foreach ($products as $p)
                <div class="col-sm-6 col-md-4 col-lg-3">
@@ -43,10 +44,11 @@
                         
                      </div>
                   </div>
-                  @endforeach
+                  
                </div>
-               
+               @endforeach
             </div>
+            
             <div class="btn-box">
                <a href="">
                View All products

@@ -42,7 +42,7 @@
     <div class="row">
       <div class="col-12">
         <h2 class="page-header">
-          <i class="fas fa-globe"></i> AdminLTE, Inc.
+          <img src="{{url('image/UkirSunHaji.png')}}" width="150" height="150" alt="Logo">
           
         </h2>
       </div>

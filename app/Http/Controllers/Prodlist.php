@@ -86,7 +86,7 @@ class Prodlist extends Controller
     public function homeProduct()
     {
         $products = Product::get();
-        // dd($products->name);
+        // dd($products);
         return view('welcome',compact('products'));
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.konsumen')
 
 
 @section('content')
@@ -26,7 +26,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($orders as $p)
+                  @foreach ($myorder as $p)
                   <tr>
                     <td>
                       <div class="icheck-primary d-inline">
@@ -41,7 +41,7 @@
                     <td>{{$p->created_at}}</td>
                     <td>{{$p->status}}</td>
                     <td><form name="orderForm"  enctype="multipart/form-data" action="{{ url('/cart') }}">
-                    <a href="">Change Status</a><input type='number' name='order' value="{{$p->id}}" class="invisible" /></form></td>
+                    <a href="">Pay Now</a><input type='number' name='order' value="{{$p->id}}" class="invisible" /></form></td>
                   </tr>
                   @endforeach
               

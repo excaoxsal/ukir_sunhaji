@@ -23,7 +23,7 @@ Route::get('/', 'Prodlist@homeProduct');
 Route::get('/konsumen', 'KonsumenController@index')->name('konsumen');
 Route::get('/shipping', 'KonsumenController@shipping')->name('shipping');
 Route::get('/struk', 'KonsumenController@struk')->name('struk');
-Route::get('/myorder', 'KonsumenController@order')->name('myorder');
+Route::get('/myorder', 'KonsumenController@myorder')->name('myorder');
 Route::post('/edit/update/', 'AlamatController@update');
 
 

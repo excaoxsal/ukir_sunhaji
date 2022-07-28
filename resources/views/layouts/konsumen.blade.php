@@ -187,7 +187,7 @@
             
           </li>
           <li class="nav-item">
-              <a href="{{ route('orders.index') }}" class="nav-link">
+              <a href="{{ url('myorder') }}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                       My Orders
