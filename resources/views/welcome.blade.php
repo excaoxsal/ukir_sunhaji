@@ -62,7 +62,7 @@
                            </a>
                            <form name="orderForm"  enctype="multipart/form-data" action="{{ url('/cart') }}">
                            <!-- harus buat view di bagian cart biar enak nantinya -->
-                           <input type='number' name='order' value="{{$p->id}}" class="invisible" />
+                           <input type='hidden' name='order' value="{{$p->id}}" />
                            <a href="javascript: submitform()" class="option2">
                            Buy Now
                            </a>

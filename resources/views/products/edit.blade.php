@@ -38,6 +38,12 @@
 		            <input type="text" name="name" value="{{ $product->name }}" class="form-control" placeholder="Name">
 		        </div>
 		    </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Stok:</strong>
+		            <input type="number" name="stok" value="{{ $product->stock }}" class="form-control" placeholder="Stok">
+		        </div>
+		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Detail:</strong>

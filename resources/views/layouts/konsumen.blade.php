@@ -167,7 +167,7 @@
                with font-awesome or any other icon font library -->
           
           <li class="nav-item">
-              <a href="{{route('konsumen')}}" class="nav-link active">
+              <a href="{{route('konsumen')}}" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
                       Dasboard
@@ -181,6 +181,14 @@
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 My Account
+                
+              </p>
+            </a>
+            <li class="nav-item">
+            <a href="{{ url('/') }}" class="nav-link">   
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                All Product
                 
               </p>
             </a>
