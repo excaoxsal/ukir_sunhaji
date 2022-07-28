@@ -34,7 +34,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav">
                         <li class="nav-item">
-                           <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
+                           <a class="nav-link" href="{{url('/home')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         @guest
                         <li class="nav-item">
