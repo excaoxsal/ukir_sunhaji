@@ -42,7 +42,7 @@
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Nomor telepon yg dapat dihubungi</label>
-      <input type="number" name="phonenumber" class="form-control" value="{{$p['phonenumber']}}" placeholder="Price">
+      <input type="number" name="phonenumber" class="form-control" value="{{$p['phonenumber']}}" placeholder="Nomor Telepon">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Provinsi</label>

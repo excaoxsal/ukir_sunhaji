@@ -39,7 +39,7 @@
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Nomor telepon yg dapat dihubungi</label>
-      <input type="number" name="phonenumber" class="form-control" placeholder="Price">
+      <input type="number" name="phonenumber" class="form-control" placeholder="Nomor Telepon">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Provinsi</label>

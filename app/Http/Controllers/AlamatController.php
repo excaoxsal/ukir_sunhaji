@@ -73,9 +73,10 @@ class AlamatController extends Controller
         // ]);
         $iduser = \Auth::user()->id;
         // dd($request);
-        $nameproduct=$request->name;
-        $status = "yes";
-        $alamat = Alamat::create([
+        if (!Alamat::where('consument_id',$iduser)->first()) {
+            $nameproduct=$request->name;
+            $status = "yes";
+            $alamat = Alamat::create([
             'consument_id'=>$iduser, 
             'id_provinsi'=>$request->provinsi, 
             'region'=>$request->region,
@@ -86,12 +87,17 @@ class AlamatController extends Controller
             'status'=>$status
             ]
         );
-        if($alamat==true){
-            return redirect()->route('alamat.index')
-                        ->with('success','Product created successfully.');
         }
         else{
-            return \Redirect::back()->withErrors(['Product sudah ada, mohon diganti.']);
+            return \Redirect::back()->withErrors(['Alamat sudah ada.']);
+        }
+        
+        if($alamat==true){
+            return redirect()->route('alamat.index')
+                        ->with('success','Alamat berhasil ditambahkan.');
+        }
+        else{
+            return \Redirect::back()->withErrors(['Alamat tidak berhasil ditambahkan.']);
         }
     }
 
@@ -103,7 +109,7 @@ class AlamatController extends Controller
      */
     public function show(Alamat $alamat)
     {
-       
+
     }
 
     /**

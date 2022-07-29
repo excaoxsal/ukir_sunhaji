@@ -4,6 +4,9 @@
 @section('content')
 <section class="content">
       <div class="container-fluid">
+        @if (count($alamat) == 0)
+            <a class="btn btn-success" href="{{route('alamat.create')}}">Create Address</a>
+        @endif
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -12,7 +15,11 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="">  
+                @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
                 <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
