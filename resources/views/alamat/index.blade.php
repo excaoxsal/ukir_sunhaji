@@ -46,12 +46,9 @@
                     <td>{{$a->phonenumber}}</td>
                     <td>{{$a->fulladdress}}</td>
                     <td>
-                        <form action="{{ route('alamat.destroy',$a->id) }}" method="POST">
+                        
                             <a class="btn btn-primary" href="{{ route('alamat.edit',$a->id) }}">Edit</a>
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        
                     </td>
                   </tr>
                   @endforeach
