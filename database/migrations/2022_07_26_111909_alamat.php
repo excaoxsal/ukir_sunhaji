@@ -16,7 +16,7 @@ class Alamat extends Migration
         Schema::create('alamat', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('consument_id')->unsigned();
-            $table->foreign('consument_id')->references('id')->on('users');
+            $table->foreign('consument_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('id_provinsi')->unsigned();
             $table->string('region');
             $table->string('nama');
@@ -24,7 +24,7 @@ class Alamat extends Migration
             $table->text('phonenumber');
             $table->text('fulladdress');
             $table->text('status');
-            $table->foreign('id_provinsi')->references('id')->on('provinsi');
+            $table->foreign('id_provinsi')->references('id')->on('provinsi')->onDelete('cascade');
             $table->timestamps();
         });
     }

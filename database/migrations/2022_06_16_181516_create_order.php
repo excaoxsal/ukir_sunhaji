@@ -16,10 +16,10 @@ class CreateOrder extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('consument_id')->unsigned();
-            $table->foreign('consument_id')->references('id')->on('users');
+            $table->foreign('consument_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('products_id')->unsigned();
             $table->text('status');
-            $table->foreign('products_id')->references('id')->on('products');
+            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

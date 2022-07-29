@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Alamat;
 use App\Order;
+use App\User;
 use App\Models\Provinsi;
+use Hash;
+
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -53,7 +57,7 @@ class KonsumenController extends Controller
         $myorder = DB::select('SELECT orders.id, orders.products_id, 
         products.name, products.picture,products.price,products.detail, products.weight, orders.consument_id, orders.created_at, orders.status
         from orders INNER JOIN products ON orders.products_id = products.id 
-        INNER JOIN users on users.id = orders.consument_id WHERE users.id = ?', [$iduser]);
+        INNER JOIN users on users.id = orders.consument_id WHERE users.id = ? AND orders.status not like ?', [$iduser,'Cancel']);
         return view ('konsumen.order',compact('myorder'));
     }
     public function shippingSave()
@@ -104,7 +108,7 @@ class KonsumenController extends Controller
         $user = User::find($id);
         
     
-        return view('konsumen.edit',compact('user','roles','userRole'));
+        return view('konsumen.edit',compact('user'));
     }
 
     /**
@@ -120,7 +124,7 @@ class KonsumenController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
-            'roles' => 'required'
+            
         ]);
     
         $input = $request->all();

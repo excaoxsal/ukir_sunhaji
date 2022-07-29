@@ -9,15 +9,14 @@
             <a href="{{route('provinsi.create')}}" class="btn btn-success">Tambah Provinsi</a>
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Daftar Provinsi</h3>
               </div>
               <!-- /.card-header -->
               
               <div class="card-body"> 
-                <table id="example1" class="table table-bordered table-striped">
+                <table  class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th></th>
                     <th>Nama Provinsi</th>
                     <th>Harga</th>
                     <th>Action</th>
@@ -27,13 +26,7 @@
                   @foreach ($provinsi as $p)
                   
                   <tr>
-                    <td>
-                      <div class="icheck-primary d-inline">
-                        <input type="checkbox" id="checkboxPrimary2" value="{{$p->id}}">
-                        <label for="checkboxPrimary2">
-                        </label>
-                      </div>
-                    </td>
+                    
                     <td>{{$p->nama_provinsi}}</td>
                     <td>{{$p->price}}</td>
                     <td><form action="{{ route('provinsi.destroy',$p->id) }}" method="POST">

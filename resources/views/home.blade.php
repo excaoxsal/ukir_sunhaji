@@ -15,8 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    <a href="{{ route('alamat.create') }}" >test alamat</a>
-                    <a href="{{ route('alamat.index') }}" >test index alamat</a>
+                    
                 </div>
             </div>
         </div>

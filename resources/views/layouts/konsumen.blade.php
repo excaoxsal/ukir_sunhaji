@@ -153,7 +153,7 @@
           <img src="{{url('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -178,7 +178,7 @@
           
           <!-- The Current User Can Create Posts -->
           <li class="nav-item">
-            <a href="{{ route('konsumen.edit',1) }}" class="nav-link">   
+            <a href="{{ route('konsumen.edit', Auth::user()->id) }}" class="nav-link">   
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 My Account
@@ -205,13 +205,6 @@
           </li>
           
           <li class="nav-item">
-            <a href="{{ url('struk') }}" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                My Receipt
-                
-              </p>
-            </a>
             <li class="nav-item">
             <a href="{{ route('alamat.index') }}" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>

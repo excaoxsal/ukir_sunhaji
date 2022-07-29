@@ -15,7 +15,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>Gambar Produk</th>
                     <th>Nama Barang</th>
                     <th>Harga</th>
                     <th>Berat</th>
@@ -27,20 +27,20 @@
                   <tbody>
                   @foreach ($orders as $p)
                   <tr>
-                    <td>
-                      <div class="icheck-primary d-inline">
-                        <input type="checkbox" id="checkboxPrimary2" value="{{$p->id}}">
-                        <label for="checkboxPrimary2">
-                        </label>
-                      </div>
-                    </td>
+                    <td><img src="{{url('product_files/'.$p->picture)}}" alt="gambar produk" width="150" height="150"></td>
                     <td>{{$p->name}}</td>
                     <td>{{$p->price}}</td>
                     <td>{{$p->weight}}</td>
                     <td>{{$p->created_at}}</td>
                     <td>{{$p->status}}</td>
-                    <td><form name="orderForm" enctype="multipart/form-data" action="{{ route('orders.edit',$p->id) }}">
-                    <input type='hidden' name='order' value="{{$p->id}}" class="invisible" /><button type="submit" class="btn btn-primary">Change Status</button></form></td>
+                    <td>
+                      <a class="btn btn-success" href="{{route('struk.show',$p->idorder)}}">Cek Struk</a>
+                      <form name="orderForm" enctype="multipart/form-data" action="{{ route('orders.edit',$p->idorder) }}">
+                    <input type='hidden' name='order' value="{{$p->id}}" class="invisible" /><button type="submit" class="btn btn-primary">Change Status</button></form>
+                    <form action="{{ route('orders.destroy',$p->idorder) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger">Delete</button></td>
                   </tr>
                   @endforeach
               

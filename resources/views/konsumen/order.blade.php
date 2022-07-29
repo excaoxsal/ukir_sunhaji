@@ -8,16 +8,15 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h1 class="card-title text-bold">My Order</h1>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <form action="">  
+              <div class="card-body"> 
                 <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th></th>
-                    <th></th>
+                    
+                    <th>Gambar Produk</th>
                     <th>Nama Barang</th>
                     <th>Harga</th>
                     <th>Berat</th>
@@ -29,21 +28,21 @@
                   <tbody>
                   @foreach ($myorder as $p)
                   <tr>
-                    <td>
-                      <div class="icheck-primary d-inline">
-                        <input type="checkbox" id="checkboxPrimary2" value="{{$p->id}}">
-                        <label for="checkboxPrimary2">
-                        </label>
-                      </div>
-                    </td>
+                    
                     <td><img src="{{url('product_files/'.$p->picture)}}" alt="gambar produk" width="150" height="150"></td>
                     <td>{{$p->name}}</td>
-                    <td>{{$p->price}}</td>
+                    <td>Rp.{{$p->price}}</td>
                     <td>{{$p->weight}}</td>
                     <td>{{$p->created_at}}</td>
                     <td>{{$p->status}}</td>
-                    <td><form name="orderForm"  enctype="multipart/form-data" action="{{ url('/cart') }}">
-                    <a href="{{route('struk.show',$p->id)}}">Pay Now</a><input type='number' name='order' value="{{$p->id}}" class="invisible" /></form></td>
+                    <td>
+                    
+                    <a class="btn btn-primary" href="{{route('struk.show',$p->id)}}">Bayar Sekarang</a><input type='number' name='order' value="{{$p->id}}" class="invisible" />
+                    <form action="{{url('/cancelOrder')}}" method="post">
+                      @csrf
+                      <input type="hidden" name="id" value="{{$p->id}}"><button type="submit" class="btn btn-danger">Batalkan Pesanan</button>
+                    </form>
+                  </td>
                   </tr>
                   @endforeach
               

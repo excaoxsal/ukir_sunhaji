@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 use App\Product;
 use App\Order;
-
+use DB;
 use Illuminate\Http\Request;
 
-class Prodlist extends Controller
+class ProdlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,10 +45,11 @@ class Prodlist extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($product)
     {
-        
-        return view('products.show',compact('product'));
+        // dd($product);
+        $product = DB::select('select * from products where id = ?', [$product]);
+        return view('konsumen.prodlist',compact('product'));
     }
 
     /**

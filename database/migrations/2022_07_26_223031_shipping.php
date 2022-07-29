@@ -16,10 +16,10 @@ class Shipping extends Migration
         Schema::create('shipping', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('consument_id')->unsigned();
-            $table->foreign('consument_id')->references('id')->on('users');
+            $table->foreign('consument_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('id_alamat')->unsigned();
             $table->text('status');
-            $table->foreign('id_alamat')->references('id')->on('alamat');
+            $table->foreign('id_alamat')->references('id')->on('alamat')->onDelete('cascade');
             $table->timestamps();
         });
     }

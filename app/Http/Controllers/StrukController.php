@@ -48,6 +48,7 @@ class StrukController extends Controller
      */
     public function show($struk)
     {
+        // dd($struk);
         $iduser = \Auth::user()->id;
         $alamat = DB::select('SELECT alamat.id as alamatID, alamat.nama, alamat.region, alamat.phonenumber, 
         alamat.fulladdress, provinsi.nama_provinsi, provinsi.price as ongkir, orders.id as orderID, orders.products_id, 

@@ -22,8 +22,8 @@ class OrderController extends Controller
         $iduser = \Auth::user()->id;
         $orders = Order::latest()
         ->join('products','products.id','=','orders.products_id')
-        ->select('products.name','orders.status','products.weight','products.created_at','products.price','products.id')
-        ->where('consument_id','=',$iduser)->paginate(10);
+        ->select('orders.id as idorder','products.name','products.picture','orders.status','products.weight','products.created_at','products.price','products.id as idproduct')
+        ->paginate(10);
         return view('orders.show',compact('orders'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -50,6 +50,7 @@ class OrderController extends Controller
 
     public function cart(Request $request)
     {
+        
         // dd($request->order);
         $iduser = \Auth::user()->id;
         // $product=DB::table('products')->where('id','=',$request->order)->get();
@@ -63,13 +64,21 @@ class OrderController extends Controller
                 ]
             );
         // dd($product);
-        $orders = Order::latest()
+        $myorder = Order::latest()
         ->join('products','products.id','=','orders.products_id')
         ->select('products.name','orders.status','products.weight','products.created_at','products.price','products.id')
         ->where('consument_id','=',$iduser)->paginate(10);
         $timezone = 'Asia/Jakarta'; $date = new DateTime('now', new DateTimeZone($timezone)); $localtime = $date->format('Y m d h:i:s a');
         // dd($date->format('Y/m/d h:i:s a'));
-        return view('orders.show', compact('orders'));
+        return view('konsumen.order', compact('myorder'));
+    }
+
+    public function cancelOrder(Request $request)
+    {
+        // dd($request->id);
+        DB::update('update orders set status = ? where id = ?', ['Cancel',$request->id]);
+        return redirect()->route('myorder')
+                        ->with('success','Pesanan telah dibatalkan');
     }
 
     /**
@@ -91,12 +100,8 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
-    {
-        //
-        // $id=$request;
-        // // dd($id);
-        // $product=DB::table('product')->where('id','=',$order);
-        
+    {   
+
         return view('order.show');
     }
 
@@ -135,6 +140,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+    
+        return redirect()->route('orders.index')
+                        ->with('success','Product deleted successfully');
     }
 }
