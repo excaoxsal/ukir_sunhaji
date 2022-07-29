@@ -41,7 +41,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Stok:</strong>
-		            <input type="number" name="stok" value="{{ $product->stock }}" class="form-control" placeholder="Stok">
+		            <input type="number" name="stock" value="{{ $product->stock }}" class="form-control" placeholder="Stok">
+		        </div>
+		    </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Price:</strong>
+		            <input type="number" name="price" value="{{ $product->price }}" class="form-control" placeholder="Stok">
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">

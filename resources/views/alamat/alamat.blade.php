@@ -7,9 +7,7 @@
         <div class="pull-left">
             <h2>Create New Address</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href=""> Back</a>
-        </div>
+        
     </div>
 </div>
 

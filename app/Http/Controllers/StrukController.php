@@ -56,7 +56,9 @@ class StrukController extends Controller
         (products.price + provinsi.price) as total from orders INNER JOIN products ON orders.products_id = products.id 
         INNER JOIN users on users.id = orders.consument_id INNER JOIN alamat ON alamat.consument_id = users.id 
         INNER JOIN provinsi ON provinsi.id = alamat.id_provinsi WHERE orders.id = ? and users.id = ?', [$struk,$iduser]);
+        
         // dd($products);
+
         return view ('konsumen.struk',compact('alamat'));
     }
 

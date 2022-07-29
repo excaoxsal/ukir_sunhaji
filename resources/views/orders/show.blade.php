@@ -8,7 +8,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Data Orders</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body"> 
@@ -29,7 +29,7 @@
                   <tr>
                     <td><img src="{{url('product_files/'.$p->picture)}}" alt="gambar produk" width="150" height="150"></td>
                     <td>{{$p->name}}</td>
-                    <td>{{$p->price}}</td>
+                    <td>Rp.{{$p->price}}</td>
                     <td>{{$p->weight}}</td>
                     <td>{{$p->created_at}}</td>
                     <td>{{$p->status}}</td>

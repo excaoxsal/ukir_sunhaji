@@ -28,19 +28,7 @@
                   RP. {{$product->price}}
                 </h2>
               </div>
-              <form name="orderForm"  enctype="multipart/form-data" action="{{ url('/cart') }}" method="POST">
-                @csrf
-                <!-- harus buat view di bagian cart biar enak nantinya -->
-              <input type='number' name='order' value="{{$product->id}}" class="invisible" />
-              <a href="javascript: submitform()">
-              <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
-                  <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                  Buy it Now
-                </div>
-              </div>
-              </a>
-              </form>
+              
 
             </div>
           </div>

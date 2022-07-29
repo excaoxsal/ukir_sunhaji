@@ -34,12 +34,10 @@
         <td>{{ ++$i }}</td>
         <td>{{ $role->name }}</td>
         <td>
-            <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>
-            
                 <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
-                <form action="{{route('roles.destroy',$role->id)}}" style="display:inline" @method('DELETE')>
-                    <button type="submit" class="btn btn-danger">Delete
-
+                
+                <form action="{{route('roles.destroy',$role->id)}}" style="display:inline">@method('DELETE')
+                    <button type="submit" class="btn btn-danger"> Delete
                     </button>
                 </form>
                 

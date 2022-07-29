@@ -57,12 +57,17 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Role:</strong>
-            <input type="text" name="role"  class="form-control" placeholder="Role">
-            
-        </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Provinsi</label>
+        <select selected="form-control select2" style="width: 100%;" name="role" class="custom-select" id="selDefault"selected>
+        <option selected>.....
+        @foreach($role as $p)
+        <option name="role" value="{{$p->id}}" >{{$p->name}} </option>
+        @endforeach
+        </select>
     </div>
+    </div>
+    
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

@@ -115,7 +115,7 @@ class ProductController extends Controller
             'name' => 'required',
             'detail' => 'required',
         ]);
-    
+        
         $product->update($request->all());
     
         return redirect()->route('products.index')

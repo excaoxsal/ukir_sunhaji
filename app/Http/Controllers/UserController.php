@@ -37,8 +37,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $role=DB::select('select * from roles', [1]);
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        return view('users.create',compact('role'));
     }
 
     /**
@@ -87,10 +88,11 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $role=DB::select('select * from roles', [1]);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
     
-        return view('users.edit',compact('user','roles','userRole'));
+        return view('users.edit',compact('user','role','userRole'));
     }
 
     /**

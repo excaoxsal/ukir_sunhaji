@@ -116,13 +116,16 @@
       <!-- accepted payments column -->
       <div class="col-6">
         <p class="lead">Payment Methods:</p>
+        <p>REKENING BRI 589601047546534</p>
+         <p> Atas Nama : Sunhaji</p>
         <p>QRIS Ukir Gebyok Pak Sunhaji</p>
         <p>Scan untuk bayar</p>
         <img src="{{url('image/qris2.jpg')}}" width="150" height="150" alt="QRIS">
 
         <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-          Untuk verifikasi pembayaran, tunjukan struk ini dan juga bukti pembayaran ke <a href="https://wa.me/081234567890">sini</a> 
+          Untuk verifikasi pembayaran, tunjukan struk ini 
         </p>
+        <p>dan juga bukti pembayaran ke wa <a href="https://wa.me/082322060412">082322060412</a> </p>
       </div>
       <!-- /.col -->
       <div class="col-6">

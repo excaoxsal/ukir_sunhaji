@@ -19,15 +19,9 @@
                            </span>
                            <br>
                            On Everything
-                        </h1>
-                        <p style="color: red">
-                           Ukir Gebyok SunHaji DIjamin Mangtaf.
-                        </p>
-                        <div class="btn-box">
-                           <a href="" class="btn1">
-                           Shop Now
-                           </a>
-                        </div>
+                        </h1>a
+                        
+                        
                      </div>
                   </div>
                </div>
@@ -35,20 +29,16 @@
          </div>
       </div>
       <div class="container">
-         <ol class="carousel-indicators">
-            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
-         </ol>
+         
       </div>
    </div>
 </section>
 <section class="product_section layout_padding">
          <div class="container">
             <div class="heading_container heading_center">
-               <h2>
-                  Our <span style="color: red"> NEW Product</span>
-               </h2>
+               <h3>
+                  Silahkan <span style="color: red"> <a href="{{route('register')}}" style="color: red">Register</a>/<a href="{{route('login')}}" style="color: red">Login</a> </span>untuk membeli
+               </h3>
             </div>
             
             <div class="row">
@@ -58,14 +48,12 @@
                      <div class="option_container">
                         <div class="options">
                            <a href="{{ route('produk.show',$p->id) }}" class="option1">
-                           See Details
+                           Beli
                            </a>
                            <form name="orderForm"  enctype="multipart/form-data" action="{{ url('/cart') }}">
                            <!-- harus buat view di bagian cart biar enak nantinya -->
                            <input type='hidden' name='order' value="{{$p->id}}" />
-                           <a href="{{url('/cart',$p->id)}}" class="option2">
-                           Buy Now
-                           </a>
+                           
                            </form>
                         </div>
                      </div>
@@ -91,9 +79,7 @@
             </div>
             
             <div class="btn-box">
-               <a href="">
-               View All products
-               </a>
+
             </div>
          </div>
       </section>
