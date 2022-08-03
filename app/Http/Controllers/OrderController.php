@@ -70,7 +70,7 @@ class OrderController extends Controller
         ->where('consument_id','=',$iduser)->paginate(10);
         $timezone = 'Asia/Jakarta'; $date = new DateTime('now', new DateTimeZone($timezone)); $localtime = $date->format('Y m d h:i:s a');
         // dd($date->format('Y/m/d h:i:s a'));
-        return view('konsumen.order', compact('myorder'));
+        return redirect()->route('myorder', compact('myorder'));
     }
 
     public function cancelOrder(Request $request)
