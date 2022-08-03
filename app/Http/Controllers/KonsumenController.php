@@ -54,11 +54,13 @@ class KonsumenController extends Controller
     public function myOrder()
     {
         $iduser = \Auth::user()->id;
+        $alamat = DB::select('select * from alamat where consument_id = ?', [$iduser]);
         $myorder = DB::select('SELECT orders.id, orders.products_id, 
         products.name, products.picture,products.price,products.detail, products.weight, orders.consument_id, orders.created_at, orders.status
         from orders INNER JOIN products ON orders.products_id = products.id 
-        INNER JOIN users on users.id = orders.consument_id WHERE users.id = ? AND orders.status not like ?', [$iduser,'Cancel']);
-        return view ('konsumen.order',compact('myorder'));
+        INNER JOIN users on users.id = orders.consument_id 
+        WHERE users.id = ? AND orders.status not like ?', [$iduser,'Cancel']);
+        return view ('konsumen.order',compact('myorder','alamat'));
     }
     public function shippingSave()
     {

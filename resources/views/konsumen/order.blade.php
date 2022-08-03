@@ -36,8 +36,12 @@
                     <td>{{$p->created_at}}</td>
                     <td>{{$p->status}}</td>
                     <td>
-                    
-                    <a class="btn btn-primary" href="{{route('struk.show',$p->id)}}">Bayar Sekarang</a><input type='number' name='order' value="{{$p->id}}" class="invisible" />
+                    @if (count($alamat) == 0)
+                    <a class="btn btn-primary" href="{{route('alamat.create',$p->id)}}">Isi Alamat Sekarang</a>
+                    @else
+                    <a class="btn btn-primary" href="{{route('struk.show',$p->id)}}">Bayar Sekarang</a>
+                    @endif
+                    <input type='number' name='order' value="{{$p->id}}" class="invisible" />
                     <form action="{{url('/cancelOrder')}}" method="post">
                       @csrf
                       <input type="hidden" name="id" value="{{$p->id}}"><button type="submit" class="btn btn-danger">Batalkan Pesanan</button>
