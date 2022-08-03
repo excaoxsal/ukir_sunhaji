@@ -47,14 +47,14 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Password:</strong>
-            <input type="password" name="password" value="{{ $user->password }}" class="form-control" placeholder="Password">
+            <input type="password" name="password" class="form-control" placeholder="Password">
             
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Confirm Password:</strong>
-            <input type="password" name="confirm-password" value="{{ $user->password }}" class="form-control" placeholder="Password">
+            <input type="password" name="confirm-password" class="form-control" placeholder="Password">
             
         </div>
     </div>
@@ -64,7 +64,7 @@
         <select selected="form-control select2" style="width: 100%;" name="role" class="custom-select" id="selDefault"selected>
         <option selected>.....
         @foreach($role as $p)
-        <option name="role" value="{{$p->id}}" >{{$p->name}} </option>
+        <option name="role" value="{{$p->name}}" >{{$p->name}} </option>
         @endforeach
         </select>
     </div>
