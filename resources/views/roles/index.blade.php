@@ -30,24 +30,25 @@
      <th width="280px">Action</th>
   </tr>
     @foreach ($roles as $key => $role)
+    <form action="{{route('delete',$role->id)}}" method="POST">@csrf
     <tr>
         <td>{{ ++$i }}</td>
         <td>{{ $role->name }}</td>
         <td>
                 <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
                 
-                <form action="{{route('roles.destroy',$role->id)}}" style="display:inline">@method('DELETE')
-                    <button type="submit" class="btn btn-danger"> Delete
-                    </button>
-                </form>
-                
-            
+                    <input type="hidden" value="{{$role->id}}" name="id">
+                    <button class="btn btn-danger"> Delete</button>
+                    
+                    <button type="submit" class="btn btn-danger"> asw
+                    </button>        
         </td>
+        </form>
     </tr>
     @endforeach
 </table>
 
 
-{!! $roles->render() !!}
+
 
 @endsection

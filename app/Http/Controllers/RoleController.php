@@ -125,9 +125,18 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function hapus(Request $request)
     {
-        DB::table("roles")->where('id',$id)->delete();
+        // dd($request->id);
+        DB::table("roles")->where('id',$request->id)->delete();
+        return redirect()->route('roles.index')
+                        ->with('success','Role deleted successfully');
+    }
+    
+    public function destroy(Request $request)
+    {
+        dd($request->id);
+        DB::delete('delete roles where id = ?', [$id->id]);
         return redirect()->route('roles.index')
                         ->with('success','Role deleted successfully');
     }

@@ -32,7 +32,7 @@
   
 </head>
 <body>
-    @foreach ($alamat as $alamat)
+    @foreach ($alamat as $a)
         
     @endforeach
 <div class="wrapper">
@@ -63,18 +63,18 @@
       <div class="col-sm-4 invoice-col">
         To
         <address>
-          <strong>{{$alamat->nama}}</strong><br>
-          {{$alamat->fulladdress}}<br>
-          {{$alamat->nama_provinsi}},{{$alamat->region}}<br>
-          Phone: (+62) {{$alamat->phonenumber}}<br>
-          Email: {{$alamat->email}}
+          <strong>{{$a->nama}}</strong><br>
+          {{$a->fulladdress}}<br>
+          {{$a->nama_provinsi}},{{$a->region}}<br>
+          Phone: (+62) {{$a->phonenumber}}<br>
+          Email: {{$a->email}}
         </address>
       </div>
       <!-- /.col -->
       <div class="col-sm-4 invoice-col">
-        <b>Invoice #UKSH{{$alamat->orderID}}</b><br>
+        <b>Invoice #UKSH{{$a->orderID}}</b><br>
         <br>
-        <b>Order ID:</b> {{$alamat->orderID}}<br>
+        <b>Order ID:</b> {{$a->orderID}}<br>
       </div>
       <!-- /.col -->
     </div>
@@ -95,15 +95,15 @@
           <tbody>
           <tr>
             <td>1</td>
-            <td>{{$alamat->product_name}}</td>
-            <td>{{$alamat->detail}}</td>
-            <td>Rp.{{$alamat->produkprice}}</td>
+            <td>{{$a->product_name}}</td>
+            <td>{{$a->detail}}</td>
+            <td>Rp.{{$a->produkprice}}</td>
           </tr>
           <tr>
             <td>2</td>
             <td>Ongkir</td>
-            <td>Ongkir dari Jawa tengah menuju {{$alamat->nama_provinsi}}</td>
-            <td>Rp.{{$alamat->ongkir}}</td>
+            <td>Ongkir dari Jawa tengah menuju {{$a->nama_provinsi}}</td>
+            <td>Rp.{{$a->ongkir}}</td>
           </tr>
           </tbody>
         </table>
@@ -137,7 +137,7 @@
               
             <tr>
               <th>Total:</th>
-              <td>Rp.{{$alamat->total}}</td>
+              <td>Rp.{{$a->total}}</td>
             </tr>
           </table>
         </div>

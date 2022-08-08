@@ -58,7 +58,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
-      <label for="exampleInputEmail1">Provinsi</label>
+      <label for="exampleInputEmail1">Roles</label>
         <select selected="form-control select2" style="width: 100%;" name="role" class="custom-select" id="selDefault"selected>
         <option selected>.....
         @foreach($role as $p)

@@ -49,13 +49,25 @@ class StrukController extends Controller
     public function show($struk)
     {
         // dd($struk);
-        $iduser = \Auth::user()->id;
+        $alamat = DB::select('SELECT alamat.id as alamatID, alamat.nama, alamat.region, alamat.phonenumber, 
+        alamat.fulladdress, provinsi.nama_provinsi, provinsi.price as ongkir, orders.id as orderID, orders.products_id, 
+        products.name as product_name, alamat.email,products.picture,products.price as produkprice,products.detail, products.weight, orders.consument_id, 
+        (products.price + provinsi.price) as total from orders INNER JOIN products ON orders.products_id = products.id 
+        INNER JOIN alamat ON alamat.consument_id = orders.consument_id 
+        INNER JOIN provinsi ON provinsi.id = alamat.id_provinsi WHERE orders.id = ?', [$struk]);
+        return view ('konsumen.struk',compact('alamat'));
+    }
+    
+    public function adminStruk($struk)
+    {
+         // dd($struk);
+        
         $alamat = DB::select('SELECT alamat.id as alamatID, alamat.nama, alamat.region, alamat.phonenumber, 
         alamat.fulladdress, provinsi.nama_provinsi, provinsi.price as ongkir, orders.id as orderID, orders.products_id, 
         products.name as product_name, alamat.email,products.picture,products.price as produkprice,products.detail, products.weight, orders.consument_id, 
         (products.price + provinsi.price) as total from orders INNER JOIN products ON orders.products_id = products.id 
         INNER JOIN users on users.id = orders.consument_id INNER JOIN alamat ON alamat.consument_id = users.id 
-        INNER JOIN provinsi ON provinsi.id = alamat.id_provinsi WHERE orders.id = ? and users.id = ?', [$struk,$iduser]);
+        INNER JOIN provinsi ON provinsi.id = alamat.id_provinsi WHERE orders.id = ?', [$struk]);
         
         // dd($products);
 

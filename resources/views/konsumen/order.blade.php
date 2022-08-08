@@ -11,6 +11,11 @@
                 <h1 class="card-title text-bold">My Order</h1>
               </div>
               <!-- /.card-header -->
+              @if ($message = Session::get('success'))
+                  <div class="alert alert-success">
+                      <p>{{ $message }}</p>
+                  </div>
+              @endif
               <div class="card-body"> 
                 <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -40,6 +45,12 @@
                     <a class="btn btn-primary" href="{{route('alamat.create',$p->id)}}">Isi Alamat Sekarang</a>
                     @else
                     <a class="btn btn-primary" href="{{route('struk.show',$p->id)}}">Bayar Sekarang</a>
+                    @if($p->status == "Bukti Pembayaran Telah Ditambahkan")
+                    <button type="submit" class="btn btn-success" disabled>Bukti Telah diUpload</button>
+                    @else
+                    <form action="{{route('buktibayar.create',$p->id)}}" class="hidden">
+                    <button type="submit" class="btn btn-success">Upload Bukti Pembayaran</button>
+                    @endif
                     @endif
                     <input type='number' name='order' value="{{$p->id}}" class="invisible" />
                     <form action="{{url('/cancelOrder')}}" method="post">
